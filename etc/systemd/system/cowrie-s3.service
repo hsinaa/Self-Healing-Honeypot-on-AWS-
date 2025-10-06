@@ -1,0 +1,13 @@
+[Unit]
+Description=Upload Cowrie session logs to S3
+After=network.target
+
+[Service]
+User=cowrie
+Group=cowrie
+WorkingDirectory=/home/cowrie
+ExecStart=/usr/bin/python3 /home/cowrie/upload_sessions.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
